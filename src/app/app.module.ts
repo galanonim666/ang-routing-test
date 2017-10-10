@@ -5,16 +5,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
+import { CrisisCenterRoutingModule } from './crisis-center/crisis-center-routing.module';
+import { CrisisCenterModule } from './crisis-center/crisis.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrisisListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +24,7 @@ import { HeroesModule } from './heroes/heroes.module';
     BrowserAnimationsModule,
 
     HeroesModule,
+    CrisisCenterModule,
     AppRoutingModule,
 
   ],

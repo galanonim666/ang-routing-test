@@ -34,7 +34,7 @@ export class HeroDetailComponent implements OnInit {
 
   @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display') display = 'block';
-  @HostBinding('style.position') position = 'absolute';
+  @HostBinding('style.position') position = 'relative';
 
   constructor(
     private route: ActivatedRoute,
