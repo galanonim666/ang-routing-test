@@ -13,6 +13,7 @@ import { CrisisCenterModule } from './crisis-center/crisis.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login.component';
+import { LoginRoutingModule } from './login-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoginComponent } from './login.component';
     CrisisCenterModule,
     AdminModule,
 
+    LoginRoutingModule,
     AppRoutingModule,
 
   ],
