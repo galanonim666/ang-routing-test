@@ -14,6 +14,7 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { DialogService } from './dialog.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { LoginRoutingModule } from './login-routing.module';
     AppRoutingModule,
 
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

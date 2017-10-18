@@ -4,6 +4,8 @@ import { CrisisCenterComponent } from './crisis-center.component';
 import { CrisisListComponent } from './crisis-list.component';
 import { CrisisCenterHomeComponent } from './crisis-center-home.component';
 import { CrisisDetailComponent } from './crisis-detail.component';
+import { CanDeactivateGuard } from '../can-deactivate-guard.service';
+import { CrisisDetailResolver } from './crisis-detail-resolver.service';
 
 // import { HeroListComponent } from './hero-list/hero-list.component';
 // import { HeroDetailComponent } from './hero-details/hero-detail.component';
@@ -19,7 +21,11 @@ const crisisCenterRoutes: Routes = [
         children: [
           {
             path: ':id',
-            component: CrisisDetailComponent
+            component: CrisisDetailComponent,
+            canDeactivate: [CanDeactivateGuard],
+            resolve: {
+              crisis: CrisisDetailResolver
+            }
           },
           {
             path: '',
@@ -37,6 +43,7 @@ const crisisCenterRoutes: Routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [CrisisDetailResolver]
 })
 export class CrisisCenterRoutingModule { }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
-  ]
+  ],
+  providers: [CanDeactivateGuard]
 })
 export class AppRoutingModule { }
