@@ -36,6 +36,11 @@ export class HeroListComponent implements OnInit {
     this.heroes$.subscribe(heroes => {
       this.selectedHero = heroes.find(h => h.id === this.selectedId)
     });
+
+    this.route.url.subscribe(url => {
+      console.log(url);
+
+    });
   }
 
   onSelect(hero: Hero): void {
