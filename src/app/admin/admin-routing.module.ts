@@ -5,6 +5,7 @@ import { ManageHeroesComponent } from './manage-heroes.component';
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from '../auth-guard.service';
+import { AuthService } from '../auth.service';
 
 const adminRoutes: Routes = [
   {
@@ -26,11 +27,7 @@ const adminRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(adminRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(adminRoutes)],
+  exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

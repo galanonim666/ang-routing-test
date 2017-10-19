@@ -6,35 +6,66 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
+import { LayoutComponent } from './layout/layout.component';
+import { HeroesModule } from './heroes/heroes.module';
+import { LoginModule } from './login.module';
+import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
   {
-    path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule',
-    canLoad: [AuthGuard]
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
+      {
+        path: 'admin',
+        loadChildren: 'app/admin/admin.module#AdminModule',
+        canLoad: [AuthGuard]
+      },
+      {
+        path: 'crisis-center',
+        loadChildren: 'app/crisis-center/crisis.module#CrisisCenterModule',
+        data: { preload: true }
+      },
+      // {
+      //   path: '',
+      //   loadChildren: () => LoginModule
+      // },
+      {
+        path: '',
+        loadChildren: 'app/login.module#LoginModule'
+      },
+      // {
+      //   path: '',
+      //   loadChildren: () => HeroesModule
+      // },
+      {
+        path: '',
+        loadChildren: 'app/heroes/heroes.module#HeroesModule'
+      },
+      { path: '**', component: PageNotFoundComponent },
+    ]
   },
-  {
-    path: 'crisis-center',
-    loadChildren: 'app/crisis-center/crisis.module#CrisisCenterModule',
-    data: { preload: true }
-  },
-  { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
   {
     path: 'compose',
     component: ComposeMessageComponent,
     outlet: 'popup'
-  }
+  },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes, {
-      enableTracing: true,
-      preloadingStrategy: SelectivePreloadingStrategy
+      enableTracing: true
+      // preloadingStrategy: SelectivePreloadingStrategy
     })
   ],
   exports: [RouterModule],
-  providers: [CanDeactivateGuard, SelectivePreloadingStrategy]
+  providers: [
+    CanDeactivateGuard,
+    SelectivePreloadingStrategy,
+    AuthGuard,
+    AuthService
+  ]
 })
 export class AppRoutingModule {}

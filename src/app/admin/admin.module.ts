@@ -7,12 +7,11 @@ import { ManageCrisesComponent } from './manage-crises.component';
 import { ManageHeroesComponent } from './manage-heroes.component';
 
 import { AdminRoutingModule } from './admin-routing.module';
+import { AuthService } from '../auth.service';
+import { AuthGuard } from '../auth-guard.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AdminRoutingModule
-  ],
+  imports: [CommonModule, AdminRoutingModule],
   declarations: [
     AdminComponent,
     AdminDashboardComponent,
@@ -20,4 +19,4 @@ import { AdminRoutingModule } from './admin-routing.module';
     ManageHeroesComponent
   ]
 })
-export class AdminModule { }
+export class AdminModule {}
