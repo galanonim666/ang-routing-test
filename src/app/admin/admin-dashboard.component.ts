@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import { SelectivePreloadingStrategy } from "../selective-preloading-strategy";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { SelectivePreloadingStrategy } from '../selective-preloading-strategy';
 
 @Component({
   template: `
@@ -33,10 +33,10 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     // Capture the session ID if available
     this.sessionId = this.route.queryParamMap.map(
-      params => params.get("session_id") || "None"
+      params => params.get('session_id') || 'None'
     );
 
     // Capture the fragment if available
-    this.token = this.route.fragment.map(fragment => fragment || "None");
+    this.token = this.route.fragment.map(fragment => fragment || 'None');
   }
 }
