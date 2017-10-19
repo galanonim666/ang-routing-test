@@ -9,9 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { CrisisCenterRoutingModule } from './crisis-center/crisis-center-routing.module';
-import { CrisisCenterModule } from './crisis-center/crisis.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
 import { DialogService } from './dialog.service';
@@ -29,8 +27,6 @@ import { DialogService } from './dialog.service';
     BrowserAnimationsModule,
 
     HeroesModule,
-    CrisisCenterModule,
-    AdminModule,
 
     LoginRoutingModule,
     AppRoutingModule,

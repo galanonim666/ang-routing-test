@@ -1,26 +1,27 @@
-import { Component, HostBinding } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostBinding } from "@angular/core";
+import { Router } from "@angular/router";
 
-import { slideInDownAnimation } from '../animations';
+import { slideInDownAnimation } from "../animations";
 
 @Component({
-  templateUrl: './compose-message.component.html',
-  styles: [':host { position: relative; bottom: 10%; }'],
+  templateUrl: "./compose-message.component.html",
+  styles: [":host { position: relative; bottom: 10%; }"],
   animations: [slideInDownAnimation]
 })
 export class ComposeMessageComponent {
-  @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display') display = 'block';
-  @HostBinding('style.position') position = 'relative';
+  @HostBinding("@routeAnimation") routeAnimation = true;
+  @HostBinding("style.display") display = "block";
+  @HostBinding("style.position") position = "relative";
 
+  message: string;
   details: string;
   sending = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   send() {
     this.sending = true;
-    this.details = 'Sending Message...';
+    this.details = "Sending Message...";
 
     setTimeout(() => {
       this.sending = false;
