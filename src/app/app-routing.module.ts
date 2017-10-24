@@ -12,11 +12,17 @@ import { LoginModule } from './login.module';
 import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/root', pathMatch: 'full' },
   {
-    path: '',
+    path: 'root',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
+      {
+        path: 'compose',
+        component: ComposeMessageComponent,
+        outlet: 'popup'
+      },
+      // { path: '', redirectTo: '/superheroes', pathMatch: 'full' },
       {
         path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule',
@@ -46,11 +52,7 @@ const appRoutes: Routes = [
       { path: '**', component: PageNotFoundComponent },
     ]
   },
-  {
-    path: 'compose',
-    component: ComposeMessageComponent,
-    outlet: 'popup'
-  },
+
 ];
 
 @NgModule({
